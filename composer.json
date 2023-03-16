@@ -1,0 +1,22 @@
+{
+    "name": "swow-cloud/debugger",
+    "description": "swow-cloud debugger",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "heping",
+            "email": "email@example.com"
+        }
+    ],
+    "require": {
+        "ext-swow": "*",
+        "php": ">=8.1",
+        "league/climate": "^3.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "SwowCloud\\Debugger\\": "/src"
+        }
+    }
+}
