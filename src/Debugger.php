@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace SwowCloud\Debugger;
 
 use League\CLImate\CLImate;
+use League\CLImate\Util\Writer\Buffer;
 
 class Debugger extends \Swow\Debug\Debugger\Debugger
 {
@@ -19,11 +20,10 @@ class Debugger extends \Swow\Debug\Debugger\Debugger
      */
     public function out(string $string = '', bool $newline = true, string $color = 'green'): static
     {
+        /** @var Buffer $buffer */
         $buffer = $this->climate->output->get('buffer');
-        /* @noinspection PhpPossiblePolymorphicInvocationInspection */
         $buffer->clean();
         $this->climate->to('buffer')->{$color}($string);
-        /* @noinspection PhpPossiblePolymorphicInvocationInspection */
         $this->output->write([rtrim($buffer->get(), "\n"), $newline ? "\n" : null]);
 
         return $this;
